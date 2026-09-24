@@ -6,5 +6,5 @@ app.listen(PORT, (error) => {
     if (error) {
         throw error;
     }
-    console.log(`Campus Events API is running on port ${PORT}`);
+    console.log(`Tools API is running on port ${PORT}`);
 });
