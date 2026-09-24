@@ -1,0 +1,26 @@
+info:
+  name: Wore down carpet cleaner, updated
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: http://localhost:4000/api/tools/d3066977-494f-495f-9bdc-9ed25138fc82
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Carpet Cleaner",
+        "category": "cleaning",
+        "condition": "worn",
+        "available": true,
+        "maxLoanDays": 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

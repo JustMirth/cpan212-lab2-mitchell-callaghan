@@ -1,0 +1,16 @@
+info:
+  name: Trying to delete Air
+  type: http
+  seq: 12
+
+http:
+  method: DELETE
+  url: http://localhost:4000/api/tools/Air
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

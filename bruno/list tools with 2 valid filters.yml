@@ -1,0 +1,23 @@
+info:
+  name: list tools with 2 valid filters
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: http://localhost:4000/api/tools?category=hand&available=true
+  params:
+    - name: category
+      value: hand
+      type: query
+    - name: available
+      value: "true"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
