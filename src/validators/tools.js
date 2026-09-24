@@ -1,5 +1,5 @@
-const CATEGORIES = ["power", "hand", "garden", "cleaning"];
-const CONDITIONS = ["new", "good", "worn"];
+export const CATEGORIES = ["power", "hand", "garden", "cleaning"];
+export const CONDITIONS = ["new", "good", "worn"];
 
 export function validateTool(body, {partial = false} = {}) {
     if (typeof body !== "object" || body === null || Array.isArray(body)) {

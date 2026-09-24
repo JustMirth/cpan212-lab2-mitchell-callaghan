@@ -1,5 +1,7 @@
 // The starting tools have fixed ids so your Bruno requests keep working after
 // a restart. Tools created through the API get an id from crypto.randomUUID().
+import {randomUUID} from "node:crypto";
+
 export const tools = [
   {
     id: 'cdcec443-777e-4c9a-b558-7e699f60ff7c',
@@ -50,3 +52,42 @@ export const tools = [
     maxLoanDays: 7,
   },
 ];
+
+export function findTool({ category, q } = {}) {
+    let result = tools;
+    if (category) {
+        result = result.filter(tool => tool.category === category);
+    }
+    if (q) {
+        const query = q.toLowerCase();
+        result = result.filter(tool => tool.name.toLowerCase().includes(query));
+    }
+    return result.toSorted((a, b) => a.name.localeCompare(b.name));
+}
+
+export function findToolById(id) {
+    return tools.find(tool => tool.id === id);
+}
+
+export function createTool(tool) {
+    const newTool = {id: randomUUID(), ...tool};
+    tools.push(newTool);
+    return newTool;
+}
+
+export function updateToolById(id, tool) {
+    const existingTool = findToolById(id);
+    if (existingTool) {
+        Object.assign(existingTool, tool);
+    }
+    return existingTool;
+}
+
+export function deleteToolById (id) {
+    const index = tools.findIndex(tool => tool.id === id);
+    if (index === -1) {
+        return false;
+    }
+    tools.splice(index, 1);
+    return true;
+}
