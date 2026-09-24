@@ -53,10 +53,13 @@ export const tools = [
   },
 ];
 
-export function findTool({ category, q } = {}) {
+export function findTool({ category, available, q } = {}) {
     let result = tools;
     if (category) {
         result = result.filter(tool => tool.category === category);
+    }
+    if (available !== undefined) {
+        result = result.filter(tool => tool.available === available);
     }
     if (q) {
         const query = q.toLowerCase();

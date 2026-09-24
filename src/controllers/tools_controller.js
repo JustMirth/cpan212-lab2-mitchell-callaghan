@@ -1,17 +1,26 @@
 import {findTool, findToolById, createTool, updateToolById, deleteToolById} from "../data/tools.js";
-import {CATEGORIES, CONDITIONS} from "../validators/tools.js";
+import {CATEGORIES, AVAILABLE} from "../validators/tools.js";
 import {HttpError} from "../utils/http_error.js";
 
 export function listTools(req, res) {
-    const { category, q } = req.query;
+    const { category, available, q } = req.query;
     if (category !== undefined && !CATEGORIES.includes(category)) {
         throw new HttpError(400, "Invalid category. Must be one of: " + CATEGORIES.join(", "));
+    }
+    if (available !== undefined && available !== "true" && available !== "false") { 
+        throw new HttpError(400, "Invalid availability parameter. Must be a boolean.");
     }
     if (q !== undefined && typeof q !== "string") {
         throw new HttpError(400, "Invalid query.", {q: "Search query must be a string"});
     }
 
-    res.json({ data: findTool({ category, q }) });
+    res.json({ 
+        data: findTool({ 
+            category, 
+            available: available === undefined ? undefined : available === "true", 
+            q 
+        }) 
+    });
 }
 
 export function getTool(req, res) {
