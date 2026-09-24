@@ -16,12 +16,16 @@ export default function errorHandler(err, req, res, next) {
             error: { message: "ERROR 404: No route found for " + req.method + " " + req.originalUrl }
         });
     }
-
-    console.error(err);
-
-    res.status(500).json({
+    
+    const status = err.status ?? 500;
+    const expected = err instanceof HttpError || status < 500;
+    if (!expected) {
+        console.error(err);
+    }
+    res.status(status).json({
         error: {
-            message: "Internal Server Error"
-        }
+            message: expected ? err.message : 'Internal server error',
+            details: err.details,
+        },
     });
 }
