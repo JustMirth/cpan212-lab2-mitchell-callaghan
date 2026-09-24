@@ -1,7 +1,7 @@
 import path from "node:path";
 import express from "express";
 import requestLogger from "./middleware/request_logger.js";
-import { tools } from "./data/tools.js";
+import notFoundError from "./middleware/not_found_error.js";
 
 export const app = express();
 
@@ -16,3 +16,5 @@ app.get('/api/tools', (req, res) => {
     data: tools
   });
 });
+
+app.use(notFoundError);
