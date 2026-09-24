@@ -7,5 +7,5 @@ export const toolsRouter = Router();
 toolsRouter.get("/", listTools);
 toolsRouter.post("/", validateTool(), createNewTool);
 toolsRouter.get("/:id", getTool);
-toolsRouter.patch("/:id", validateTool({ partial: true }), updateTool);
+toolsRouter.put("/:id", validateTool(), updateTool);
 toolsRouter.delete("/:id", deleteTool);
