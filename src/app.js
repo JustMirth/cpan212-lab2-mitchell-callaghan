@@ -15,5 +15,7 @@ app.get('/api/health', (req, res) => {
 });
 app.use("/api/tools", toolsRouter);
 
-app.use(notFoundError);
+/* Moved this into error handler in error_handlers.js
+app.use(notFoundError); */
+
 app.use(errorHandler);
