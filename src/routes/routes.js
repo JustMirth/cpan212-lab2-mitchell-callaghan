@@ -5,7 +5,7 @@ import validateTool from "../middleware/validate_tool.js";
 export const toolsRouter = Router();
 
 toolsRouter.get("/", listTools);
-toolsRouter.post("/", validateTool, createNewTool);
+toolsRouter.post("/", validateTool(), createNewTool);
 toolsRouter.get("/:id", getTool);
 toolsRouter.patch("/:id", validateTool({ partial: true }), updateTool);
 toolsRouter.delete("/:id", deleteTool);

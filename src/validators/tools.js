@@ -1,4 +1,5 @@
 export const CATEGORIES = ["power", "hand", "garden", "cleaning"];
+export const CONDITIONS = ["new", "good", "worn"];
 export const AVAILABLE = [true, false];
 
 export function validateTool(body, {partial = false} = {}) {
@@ -10,12 +11,12 @@ export function validateTool(body, {partial = false} = {}) {
     const errors = {};
     const shouldValidate = (field) => !partial || body[field] !== undefined;
 
-    if (shouldValidate("toolname")) {
-        const name = typeof body.toolname === "string" ? body.toolname.trim() : "";
+    if (shouldValidate("name")) {
+        const name = typeof body.name === "string" ? body.name.trim() : "";
         if (name.length < 2 || name.length > 60) {
-            errors.toolname = "Tool name must be between 2 and 60 characters";
+            errors.name = "Tool name must be between 2 and 60 characters";
         } else {
-            value.toolname = name;
+            value.name = name;
         }
     }
     
