@@ -1,4 +1,4 @@
-const CATEGORIES = ["power, hand", "garden", "cleaning"];
+const CATEGORIES = ["power", "hand", "garden", "cleaning"];
 const CONDITIONS = ["new", "good", "worn"];
 
 export function validateTool(body, {partial = false} = {}) {
