@@ -1,21 +1,24 @@
 {
-  "name": "week03-express",
+  "name": "cpan212-lab2-mitchell-callaghan",
   "version": "1.0.0",
-  "description": "CPAN 212 Week 3: Campus Events API with Express 5",
-  "type": "module",
-  "private": true,
-  "engines": {
-    "node": ">=24"
-  },
+  "description": "",
   "scripts": {
     "dev": "node --watch --env-file-if-exists=.env src/server.js",
     "start": "node --env-file-if-exists=.env src/server.js"
   },
-  "dependencies": {
-    "express": "^5.2.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustMirth/cpan212-Lab2-Mitchell-Callaghan.git"
   },
-  "main": "first-app.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/JustMirth/cpan212-Lab2-Mitchell-Callaghan/issues"
+  },
+  "homepage": "https://github.com/JustMirth/cpan212-Lab2-Mitchell-Callaghan#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
